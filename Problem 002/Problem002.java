@@ -7,12 +7,35 @@
  * By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
  * find the sum of the even-valued terms.
  * 
- * Solution:
+ * Solution: 4613732
  */
 public class Problem002 {
 
+    public Problem002(){
+        int i = 0;
+        int sum = 0;
+        int val = fib(i);
+        
+        while(val < 4000000){
+            sum += val % 2 == 0 ? val : 0;
+            i++;
+            val = fib(i);
+        }
+        
+        System.out.println(sum);
+    }
+    
     public static void main(String[] args) {
+        new Problem002();
+    }
 
+    public int fib(int n)  {
+        if(n == 0)
+            return 0;
+        else if(n == 1)
+          return 1;
+       else
+          return fib(n - 1) + fib(n - 2);
     }
 
 }
